@@ -12,11 +12,139 @@
     <title>Document</title>
 </head>
 <body>
+    <select name="Turtles" multiple="one">
+        <option>Flowers</option>
+        <option>Lion</option>
+        <option>Bee</option>
+        <option>Unicorn</option>
+    </select>
 
     <!--create a header with instructions, countdown timer, and topic-->
     <!--limit the number of answers they can use to one -->
     <!--keep score-->
    
+<script>
+
+var countToTen = [
+    {
+        name: 'Chinese', 
+        numbers: ['yi','er','san','si','wu','liu','qi','ba','jiu','shi']
+    },
+    {
+        name: 'Croatian',
+        numbers: ['jedan','dva','tri','četiri','pet','šest','sedam','osam','devet','deset']
+    },
+    {
+        name: 'Czech',
+        numbers: ['jeden','dva','tri','chtyri','pet','shest','sedm','osm','devet','deset']
+    },
+    {
+        name: 'Danish',
+        numbers: ['en','to','tre','fire','fem','seks','syv','otte','ni','ti']
+    },
+    {
+        name: 'Dutch',
+        numbers: ['een','twee','drie','vier','vijf','zes','zeven','acht','negen','tien']
+    },
+    {
+        name: 'English',
+        numbers: ['one','two','three','four','five','six','seven','eight','nine','ten']
+    },
+    {
+        name: 'Estonian',
+        numbers: ['üks','kaks','kolm','neli','viis','kuus','seitse','kaheksa','üheksa','kümme']
+    },
+    {
+        name: 'Finnish',
+        numbers: ['yksi','kaksi','kolme','neljä','viisi','kuusi','seitsemän','kahdeksan','yhdeksän','kymmenen']
+    },
+    {
+        name: 'French',
+        numbers: ['un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix']
+    },
+    {
+        name: 'German',
+        numbers: ['eins','zwei','drei','vier','fünf','sechs','sieben','acht','neun','zehn']
+    },
+    {
+        name: 'Hebrew',
+        numbers: ['אחת','שנים','שלוש','ארבע','חמש','שש','שבע','שמונה','תשע','עשר']
+    },
+    {
+        name: 'Hungarian',
+        numbers: ['egy','kettö','három','négy','öt','hat','hét','nyolc','kilenc','tíz']
+    },
+    {
+        name: 'Italian',
+        numbers: ['uno','due','tre','quattro','cinque','sei','sette','otto','nove','dieci']
+    },
+    {
+        name: 'Japanese',
+        numbers: ['ichi','ni','san','yon','go','roku','nana','hachi','kyuu','juu']
+    },
+    {
+        name: 'Norwegian',
+        numbers: ['en','to','tre','fire','fem','seks','syv','åtte','ni','ti']
+    },
+    {
+        name: 'Polish',
+        numbers: ['jeden','dwa','trzy','cztery','piec','szesc','siedem','osiem','dziewiec','dziesiec']
+    },
+    {
+        name: 'Portuguese',
+        numbers: ['um','dois','três','quatro','cinco','seis','sete','oito','nove','dez']
+    },
+    {
+        name: 'Romanian',
+        numbers: ['unu','doi','trei','patru','cinci','sase','sapte','opt','noua','zece']
+    },
+    {
+        name: 'Spanish',
+        numbers: ['uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez']
+    },
+    {
+        name: 'Swedish',
+        numbers: ['en','två','tre','fyra','fem','sex','sju','åtta','nio','tio']
+    },
+    {
+        name: 'Turkish',
+        numbers: ['bir','iki','üç','dört','bes','alti','yedi','sekiz','dokuz','on']
+    },
+    {
+        name: 'Welsh (masculine)',
+        numbers: ['un','dau','tri','pedwar','pump','chwech','saith','wyth','naw','deg']
+    },
+    {
+        name: 'Welsh (feminine)',
+        numbers: ['un','dwy','tair','pedair','pump','chwech','saith','wyth','naw','deg']
+    }
+];
+
+
+
+for (var i = 1; i <= 10; i++) {
+//selects the variables
+    var randomNumberToTen = Math.floor(Math.random()*10);
+    var randomSelection = Math.floor(Math.random()*countToTen.length);
+    var randomLanguageCount = countToTen[randomSelection];
+    var randomLanguage = randomLanguageCount.name;
+    var correctAnswer = randomLanguageCount.numbers[randomNumberToTen];
+    //set up an if statement to prevent the random number being the same as previously stated
+    var wrongAnswer3 = wrongRandomLanguageCount3.numbers[randomNumberToTen];
+    var randomNumber = countToTen[5].numbers[randomNumberToTen];
+//question to be asked
+    var question = 'What is ' + randomNumber + ' in ' + randomLanguage + '?';
+
+    console.log('Language used: ' + randomLanguage);
+    console.log('English number: ' + randomNumber);
+    console.log('The answer is ' + guess);
+    console.log('Question ' + i + ': ' + question);
+}
+
+
+
+</script>
+
     
 </body>
 </html>
