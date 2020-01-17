@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		
-    <title>Document</title>
+    <title>What is the number in a different language?</title>
 </head>
 <body>
+    <div id="timmer"></div>
+
     <form id="languageOfNumbers">
     <fieldset>
         <legend id="question1"></legend>
@@ -247,7 +249,7 @@ $(document).ready(function() {
 
     for (var i = 0; i < 10; i++) {
 
-    //selects the variables for the question
+//selects the variables for the question
         var randomNumberToTen = i + 1;
         var randomSelection = Math.floor(Math.random()*countToTen.length);
         var randomLanguage = countToTen[randomSelection].name;
@@ -255,7 +257,7 @@ $(document).ready(function() {
         var correctAnswerSpot = Math.floor(Math.random()*5) + 1;
         var randomNumber = countToTen[5].numbers[(randomNumberToTen-1)];
 
-    //question to be asked
+//question to be asked
         var question = 'What is ' + randomNumber + ' in ' + randomLanguage + '?';
         console.log('Language used: ' + randomLanguage);
         console.log('English number: ' + randomNumber);
@@ -263,10 +265,10 @@ $(document).ready(function() {
         console.log('The answer is ' + correctAnswer);
         console.log('The correct answer spot is: ' + correctAnswerSpot);
 
-    //adds the question to the correct spot on the page
+//adds the question to the correct spot on the page
         $('#question' + randomNumberToTen).text((i + 1) + ') ' + question);
 
-    //sets up all the possible answers
+//sets up all the possible answers
         var possibleAnswers = [];
         possibleAnswers.push(correctAnswer);
 
@@ -278,7 +280,7 @@ $(document).ready(function() {
             }
         } while (possibleAnswers.length<5);
 
-    //puts the correct answer in the correct spot in the array
+//puts the correct answer in the correct spot in the array
         possibleAnswers.splice(0, 1);
         possibleAnswers.splice(correctAnswerSpot-1, 0, correctAnswer);
 
@@ -288,6 +290,37 @@ $(document).ready(function() {
         });
             
     } //end of for loop
+
+//add timmer
+    var number = 3;
+    var intervalId;
+
+//runs the timmer
+    function run() {
+        clearInterval(intervalId);
+        intervalID = setInterval(decrement, 1000);
+    }
+
+//decreases the timmer
+    function decrement() {
+        number--;
+        $("#timmer").html("<h2>" + number + "</h2>");
+
+        if (number <= 0) { 
+            stop();
+            //add more lines here
+        }
+    }
+
+//events that happen when the timmer hits 0
+    function stop() {
+        clearInterval(intervalId);
+        $("#timmer").html("<h2>" + 0 + "</h2>");
+    }
+
+    run();
+
+
 }); //end of document.ready
 </script>
 
