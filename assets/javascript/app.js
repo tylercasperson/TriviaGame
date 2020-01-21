@@ -145,7 +145,7 @@ $(document).ready(function() {
 
     //adds the question to the correct spot on the page
         $('#question' + randomNumberToTen).text((i + 1) + ') ' + question);
-
+            
     //sets up all the possible answers
         var possibleAnswers = [];
         possibleAnswers.push(correctAnswer);
@@ -163,10 +163,23 @@ $(document).ready(function() {
         possibleAnswers.splice(correctAnswerSpot-1, 0, correctAnswer);
 
     //outputs the label for every possible answer
+        var giveAway = 'answer';
         $.each(possibleAnswers, function(index, value) {
-            $("#labelQuestion" + (i + 1) + "Answer" + (index + 1)).text(value);
+            $("#labelQuestion" + (i + 1) + "Answer" + (index + 1)).text(value).addClass(value);
         });
+
+        //$('#').value(correctAnswer).addClass("answer");
             
     } //end of for loop
+    
+    var response = [];
+        $("input").on("click", function() {
+            var questionNumber = $(this).attr('id').charAt(8);
+            var answerNumber = $(this).attr('id').charAt(15);
+            var guess = $("#labelQuestion" + questionNumber + "Answer" + answerNumber).attr('class');
+            response.splice((questionNumber-1),1,guess);
+        })   
+    
+
 
 }); //end of document.ready
