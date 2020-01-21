@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
 //add timmer
     var number = 3;
     var intervalId;
@@ -124,6 +124,8 @@ $(document).ready(function() {
         }
     ];
 
+    var answers = [];
+    var response = [1,2,3,4,5,6,7,8,9,10];
 
     for (var i = 0; i < 10; i++) {
 
@@ -147,6 +149,7 @@ $(document).ready(function() {
         $('#question' + randomNumberToTen).text((i + 1) + ') ' + question);
             
     //sets up all the possible answers
+        answers.push(correctAnswer);
         var possibleAnswers = [];
         possibleAnswers.push(correctAnswer);
 
@@ -163,7 +166,6 @@ $(document).ready(function() {
         possibleAnswers.splice(correctAnswerSpot-1, 0, correctAnswer);
 
     //outputs the label for every possible answer
-        var giveAway = 'answer';
         $.each(possibleAnswers, function(index, value) {
             $("#labelQuestion" + (i + 1) + "Answer" + (index + 1)).text(value).addClass(value);
         });
@@ -171,15 +173,40 @@ $(document).ready(function() {
         //$('#').value(correctAnswer).addClass("answer");
             
     } //end of for loop
+    console.log(answers);
+    //pushes all of the guesses into an array
     
-    var response = [];
-        $("input").on("click", function() {
-            var questionNumber = $(this).attr('id').charAt(8);
+    $("input").on("click", function() {
+        var questionNumber = $(this).attr('id').substr(8,2);
+        console.log();
+        if(questionNumber.charAt(1) === 'A') {
+            var questionNumber = $(this).attr('id').substr(8,1);
             var answerNumber = $(this).attr('id').charAt(15);
-            var guess = $("#labelQuestion" + questionNumber + "Answer" + answerNumber).attr('class');
-            response.splice((questionNumber-1),1,guess);
-        })   
+        } else {
+            var questionNumber = $(this).attr('id').substr(8,2);
+            var answerNumber = $(this).attr('id').charAt(16);
+        }
+        
+        var guess = $("#labelQuestion" + questionNumber + "Answer" + answerNumber).attr('class');      
+        var selection = questionNumber-1;
+        response[selection] = guess;
+    });
+        
+    function check() {
+        var correct = 0;
+        for (var a = 0; a < answers.length; a++){
+            if (answers[a] === response[a]) {
+                correct++;
+            }
+            console.log(response[a]);
+        }
+        console.log(answers);
+        console.log(response);
+        localStorage.setItem("numberCorrect",correct);
+    };
+
+    $("#submit").on("click", function() {
+        check();
+    });
     
-
-
 }); //end of document.ready
