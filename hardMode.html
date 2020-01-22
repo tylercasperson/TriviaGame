@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/javascript/hardMode.js"></script>
+    <title>What is the number in a different language?</title>
+</head>
+<body>
+    <div class="timmer"></div>
+    <div class="singleQuestion">
+        <form id="hardMode">
+            <legend id="ultimateQuestion">
+                <input type="radio" name="ultimateQuestion" id="questionAnswer1">
+                <label for="questionAnswer1" id="labelQuestionAnswer1"></label>
+                <input type="radio" name="ultimateQuestion" id="questionAnswer2">
+                <label for="questionAnswer2" id="labelQuestionAnswer2"></label>
+                <input type="radio" name="ultimateQuestion" id="questionAnswer3">
+                <label for="questionAnswer3" id="labelQuestionAnswer3"></label>
+                <input type="radio" name="ultimateQuestion" id="questionAnswer4">
+                <label for="questionAnswer4" id="labelQuestionAnswer4"></label>
+                <input type="radio" name="ultimateQuestion" id="questionAnswer5">
+                <label for="questionAnswer5" id="labelQuestionAnswer5"></label>
+            </legend>
+        </form>
+        <button class="next">Next</button>
+    </div>
+
+    <div class="hidden">
+        <form id="languageOfNumbers">
+        <fieldset>
+            <legend id="question1"></legend>
+            <input type="radio" name="question1" id="quesiton1Answer1">
+            <label for="question1Answer1" id="labelQuestion1Answer1"></label>
+            <input type="radio" name="question1" id="quesiton1Answer2">
+            <label for="question1Answer2" id="labelQuestion1Answer2"></label>
+            <input type="radio" name="question1" id="quesiton1Answer3">
+            <label for="question1Answer3" id="labelQuestion1Answer3"></label>
+            <input type="radio" name="question1" id="quesiton1Answer4">
+            <label for="question1Answer4" id="labelQuestion1Answer4"></label>
+            <input type="radio" name="question1" id="quesiton1Answer5">
+            <label for="question1Answer5" id="labelQuestion1Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question2"></legend>
+            <input type="radio" name="question2" id="quesiton2Answer1">
+            <label for="question2Answer1" id="labelQuestion2Answer1"></label>
+            <input type="radio" name="question2" id="quesiton2Answer2">
+            <label for="question2Answer2" id="labelQuestion2Answer2"></label>
+            <input type="radio" name="question2" id="quesiton2Answer3">
+            <label for="question2Answer3" id="labelQuestion2Answer3"></label>
+            <input type="radio" name="question2" id="quesiton2Answer4">
+            <label for="question2Answer4" id="labelQuestion2Answer4"></label>
+            <input type="radio" name="question2" id="quesiton2Answer5">
+            <label for="question2Answer5" id="labelQuestion2Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question3"></legend>
+            <input type="radio" name="question3" id="quesiton3Answer1">
+            <label for="question3Answer1" id="labelQuestion3Answer1"></label>
+            <input type="radio" name="question3" id="quesiton3Answer2">
+            <label for="question3Answer2" id="labelQuestion3Answer2"></label>
+            <input type="radio" name="question3" id="quesiton3Answer3">
+            <label for="question3Answer3" id="labelQuestion3Answer3"></label>
+            <input type="radio" name="question3" id="quesiton3Answer4">
+            <label for="question3Answer4" id="labelQuestion3Answer4"></label>
+            <input type="radio" name="question3" id="quesiton3Answer5">
+            <label for="question3Answer5" id="labelQuestion3Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question4"></legend>
+            <input type="radio" name="question4" id="quesiton4Answer1">
+            <label for="question4Answer1" id="labelQuestion4Answer1"></label>
+            <input type="radio" name="question4" id="quesiton4Answer2">
+            <label for="question4Answer2" id="labelQuestion4Answer2"></label>
+            <input type="radio" name="question4" id="quesiton4Answer3">
+            <label for="question4Answer3" id="labelQuestion4Answer3"></label>
+            <input type="radio" name="question4" id="quesiton4Answer4">
+            <label for="question4Answer4" id="labelQuestion4Answer4"></label>
+            <input type="radio" name="question4" id="quesiton4Answer5">
+            <label for="question4Answer5" id="labelQuestion4Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question5"></legend>
+            <input type="radio" name="question5" id="quesiton5Answer1">
+            <label for="question5Answer1" id="labelQuestion5Answer1"></label>
+            <input type="radio" name="question5" id="quesiton5Answer2">
+            <label for="question5Answer2" id="labelQuestion5Answer2"></label>
+            <input type="radio" name="question5" id="quesiton5Answer3">
+            <label for="question5Answer3" id="labelQuestion5Answer3"></label>
+            <input type="radio" name="question5" id="quesiton5Answer4">
+            <label for="question5Answer4" id="labelQuestion5Answer4"></label>
+            <input type="radio" name="question5" id="quesiton5Answer5">
+            <label for="question5Answer5" id="labelQuestion5Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question6"></legend>
+            <input type="radio" name="question6" id="quesiton6Answer1">
+            <label for="question6Answer1" id="labelQuestion6Answer1"></label>
+            <input type="radio" name="question6" id="quesiton6Answer2">
+            <label for="question6Answer2" id="labelQuestion6Answer2"></label>
+            <input type="radio" name="question6" id="quesiton6Answer3">
+            <label for="question6Answer3" id="labelQuestion6Answer3"></label>
+            <input type="radio" name="question6" id="quesiton6Answer4">
+            <label for="question6Answer4" id="labelQuestion6Answer4"></label>
+            <input type="radio" name="question6" id="quesiton6Answer5">
+            <label for="question6Answer5" id="labelQuestion6Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question7"></legend>
+            <input type="radio" name="question7" id="quesiton7Answer1">
+            <label for="question7Answer1" id="labelQuestion7Answer1"></label>
+            <input type="radio" name="question7" id="quesiton7Answer2">
+            <label for="question7Answer2" id="labelQuestion7Answer2"></label>
+            <input type="radio" name="question7" id="quesiton7Answer3">
+            <label for="question7Answer3" id="labelQuestion7Answer3"></label>
+            <input type="radio" name="question7" id="quesiton7Answer4">
+            <label for="question7Answer4" id="labelQuestion7Answer4"></label>
+            <input type="radio" name="question7" id="quesiton7Answer5">
+            <label for="question7Answer5" id="labelQuestion7Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question8"></legend>
+            <input type="radio" name="question8" id="quesiton8Answer1">
+            <label for="question8Answer1" id="labelQuestion8Answer1"></label>
+            <input type="radio" name="question8" id="quesiton8Answer2">
+            <label for="question8Answer2" id="labelQuestion8Answer2"></label>
+            <input type="radio" name="question8" id="quesiton8Answer3">
+            <label for="question8Answer3" id="labelQuestion8Answer3"></label>
+            <input type="radio" name="question8" id="quesiton8Answer4">
+            <label for="question8Answer4" id="labelQuestion8Answer4"></label>
+            <input type="radio" name="question8" id="quesiton8Answer5">
+            <label for="question8Answer5" id="labelQuestion8Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question9"></legend>
+            <input type="radio" name="question9" id="quesiton9Answer1">
+            <label for="question9Answer1" id="labelQuestion9Answer1"></label>
+            <input type="radio" name="question9" id="quesiton9Answer2">
+            <label for="question9Answer2" id="labelQuestion9Answer2"></label>
+            <input type="radio" name="question9" id="quesiton9Answer3">
+            <label for="question9Answer3" id="labelQuestion9Answer3"></label>
+            <input type="radio" name="question9" id="quesiton9Answer4">
+            <label for="question9Answer4" id="labelQuestion9Answer4"></label>
+            <input type="radio" name="question9" id="quesiton9Answer5">
+            <label for="question9Answer5" id="labelQuestion9Answer5"></label>
+        </fieldset>
+        <fieldset>
+            <legend id="question10"></legend>
+            <input type="radio" name="question10" id="quesiton10Answer1">
+            <label for="question10Answer1" id="labelQuestion10Answer1"></label>
+            <input type="radio" name="question10" id="quesiton10Answer2">
+            <label for="question10Answer2" id="labelQuestion10Answer2"></label>
+            <input type="radio" name="question10" id="quesiton10Answer3">
+            <label for="question10Answer3" id="labelQuestion10Answer3"></label>
+            <input type="radio" name="question10" id="quesiton10Answer4">
+            <label for="question10Answer4" id="labelQuestion10Answer4"></label>
+            <input type="radio" name="question10" id="quesiton10Answer5">
+            <label for="question10Answer5" id="labelQuestion10Answer5"></label>
+        </fieldset>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
 //add timmer
-    var number = 3;
+    var timelimit = localStorage.getItem("timelimit");
     var intervalId;
 
 //runs the timmer
@@ -12,11 +12,12 @@ $(document).ready(function() {
 
 //decreases the timmer
     function decrement() {
-        number--;
-        $("#timmer").html("<h2>" + number + "</h2>");
+        timelimit--;
+        $("#timmer").html("<h2>" + timelimit + "</h2>");
 
-        if (number <= 0) { 
+        if (timelimit <= 0) { 
             stop();
+            check();
     //add more lines here
         }
     }
