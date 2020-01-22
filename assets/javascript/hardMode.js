@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
     //add timmer
-        var number = 3;
+        var timelimit = localStorage.getItem("timelimit");
         var intervalId;
     
     //runs the timmer
@@ -12,11 +12,12 @@ $(document).ready(function() {
     
     //decreases the timmer
         function decrement() {
-            number--;
-            $("#timmer").html("<h2>" + number + "</h2>");
+            timelimit--;
+            $("#timmer").html("<h2>" + timelimit + "</h2>");
     
-            if (number <= 0) { 
+            if (timelimit <= 0) { 
                 stop();
+                check();
         //add more lines here
             }
         }
@@ -123,101 +124,101 @@ $(document).ready(function() {
                 numbers: ['un','dwy','tair','pedair','pump','chwech','saith','wyth','naw','deg']
             }
         ];
-    
-        var answers = [];
-        var response = [1,2,3,4,5,6,7,8,9,10];
-    
-        for (var i = 0; i < 10; i++) {
-    
-        //selects the variables for the question
-            var randomNumberToTen = i + 1;
-            var randomSelection = Math.floor(Math.random()*countToTen.length);
-            var randomLanguage = countToTen[randomSelection].name;
-            var correctAnswer = countToTen[randomSelection].numbers[(randomNumberToTen-1)];
-            var correctAnswerSpot = Math.floor(Math.random()*5) + 1;
-            var randomNumber = countToTen[5].numbers[(randomNumberToTen-1)];
-    
-        //question to be asked
-            var question = 'What is ' + randomNumber + ' in ' + randomLanguage + '?';
-            console.log('Language used: ' + randomLanguage);
-            console.log('English number: ' + randomNumber);
-            console.log('Question ' + (i + 1) + ': ' + question);
-            console.log('The answer is ' + correctAnswer);
-            console.log('The correct answer spot is: ' + correctAnswerSpot);
-    
-        //adds the question to the correct spot on the page
-            $('#question' + randomNumberToTen).text((i + 1) + ') ' + question);
-                
-        //sets up all the possible answers
-            answers.push(correctAnswer);
-            var possibleAnswers = [];
-            possibleAnswers.push(correctAnswer);
-    
-            do {
-                var wrongRandomSelection = Math.floor(Math.random()*countToTen.length);
-                var wrongRandomLanguage = countToTen[wrongRandomSelection].numbers[(randomNumberToTen-1)];
-                if (possibleAnswers.indexOf(wrongRandomLanguage) === -1) {
-                    possibleAnswers.push(wrongRandomLanguage);
-                }
-            } while (possibleAnswers.length<5);
-    
-        //puts the correct answer in the correct spot in the array
-            possibleAnswers.splice(0, 1);
-            possibleAnswers.splice(correctAnswerSpot-1, 0, correctAnswer);
-    
-        //outputs the label for every possible answer
-            $.each(possibleAnswers, function(index, value) {
-                $("#labelQuestion" + (i + 1) + "Answer" + (index + 1)).text(value).addClass(value);
-            });
-        } //end of for loop
-        console.log(answers);
-        //pushes all of the guesses into an array
         
-        $("input").on("click", function() {
-            var questionNumber = $(this).attr('id').substr(8,2);
-            console.log();
-            if(questionNumber.charAt(1) === 'A') {
-                var questionNumber = $(this).attr('id').substr(8,1);
-                var answerNumber = $(this).attr('id').charAt(15);
-            } else {
-                var questionNumber = $(this).attr('id').substr(8,2);
-                var answerNumber = $(this).attr('id').charAt(16);
-            }
-            
-            var guess = $("#labelQuestion" + questionNumber + "Answer" + answerNumber).attr('class');      
-            var selection = questionNumber-1;
-            response[selection] = guess;
-        });
-            
-        function check() {
-            var correct = 0;
-            for (var a = 0; a < answers.length; a++){
-                if (answers[a] === response[a]) {
-                    correct++;
-                }
-                console.log(response[a]);
-            }
-            console.log(answers);
-            console.log(response);
-            localStorage.setItem("numberCorrect",correct);
-        };
-    
-        $("#submit").on("click", function() {
-            check();
-        });
+    var answers = [];
+    var response = [1,2,3,4,5,6,7,8,9,10];
 
-        function next() {
-            for (var questionNbr = 1; questionNbr<10;questionNbr++){
-                var selectedQuestion = $("legend", ".question" + questionNbr);
-                console.log(questionNbr);
-                console.log(selectedQuestion);
-                $("#ultimateQuestion").text(selectedQuestion);
-            }
+    function setupQuestion() {
+        var i = localStorage.getItem("i");
+        if (i === null){
+            var i = 1;
+            localStorage.setItem("i",i);
+        } else {
+            var i = localStorage.getItem("i");
         }
-
-        $(".next").on("click", function() {
-            next();
-        });
+        console.log(i);
+        var questionIndex = (i - 1);
         
-    }); //end of document.ready
+    //selects the variables for the question
+        var randomSelection = Math.floor(Math.random()*countToTen.length);
+        var randomLanguage = countToTen[randomSelection].name;
+        var correctAnswer = countToTen[randomSelection].numbers[(questionIndex)];
+        var correctAnswerSpot = Math.floor(Math.random()*5) + 1;
+        var randomNumber = countToTen[5].numbers[(questionIndex)];
+
+    //question to be asked
+        var question = 'What is ' + randomNumber + ' in ' + randomLanguage + '?';
+        console.log('Language used: ' + randomLanguage);
+        console.log('English number: ' + randomNumber);
+        console.log('Question ' + (i) + ': ' + question);
+        console.log('The answer is ' + correctAnswer);
+        console.log('The correct answer spot is: ' + correctAnswerSpot);
+
+    //adds the question to the correct spot on the page
+        $('#ultimateQuestion').prepend((i) + ') ' + question + '<br>');
+            
+    //sets up all the possible answers
+        answers[questionIndex] = correctAnswer;
+        var possibleAnswers = [];
+        possibleAnswers.push(correctAnswer);
+        console.log(possibleAnswers);
+
+        do {
+            var wrongRandomSelection = Math.floor(Math.random()*countToTen.length);
+            var wrongRandomLanguage = countToTen[wrongRandomSelection].numbers[(questionIndex)];
+            if (possibleAnswers.indexOf(wrongRandomLanguage) === -1) {
+                possibleAnswers.push(wrongRandomLanguage);
+            }
+        } while (possibleAnswers.length<5);
+        
+    //puts the correct answer in the correct spot in the array
+        possibleAnswers.splice(0, 1);
+        possibleAnswers.splice(correctAnswerSpot-1, 0, correctAnswer);
+        console.log(possibleAnswers);
+    //outputs the label for every possible answer
+        $.each(possibleAnswers, function(index, value) {
+            $("#labelQuestionAnswer" + (index + 1)).text(value).addClass(value);
+        });
+
+    console.log(answers);
+    localStorage.setItem("i",i);
+    var selection = localStorage.setItem("guess", possibleAnswers);
+    };
+
+//pushes all of the guesses into an array
+
+    $("input").on("click", function() {
+        var i = local
+        var guess = i;
+        
+        console.log(guess);
+        response[localStorage.getItem("i")-1] = guess;
+    });
+        
+    function check() {
+        var correct = 0;
+        for (var a = 0; a < answers.length; a++){
+            if (answers[a] === response[a]) {
+                correct++;
+            }
+            console.log(response[a]);
+        }
+        console.log(answers);
+        console.log(response);
+        localStorage.setItem("numberCorrect",correct);
+    };
+
+
+    function next() {
+        if (localStorage.getItem("i") === 9){
+            check();
+        }
+    }
+
+    $(".next").on("click", function() {
+        next();
+    });
     
+    setupQuestion();
+
+}); //end of document.ready
