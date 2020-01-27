@@ -16,7 +16,7 @@ $(document).ready(function() {
         $("#timmer").html("<h2>Better hurry! Here is your remaining time: " + timelimit + "</h2>");
 
         if (timelimit <= 0) { 
-            // stop();
+            stop();
             check();
     //add more lines here
         }
@@ -170,13 +170,9 @@ $(document).ready(function() {
         $.each(possibleAnswers, function(index, value) {
             $("#labelQuestion" + (i + 1) + "Answer" + (index + 1)).text(value).addClass(value);
         });
-
-        //$('#').value(correctAnswer).addClass("answer");
             
     } //end of for loop
-    console.log(answers);
-    //pushes all of the guesses into an array
-    
+
     $("input").on("click", function() {
         var questionNumber = $(this).attr('id').substr(8,2);
         console.log();
@@ -204,7 +200,6 @@ $(document).ready(function() {
         console.log(answers);
         console.log(response);
         localStorage.setItem("numberCorrect",correct);
-        //figure out how to redirect to the next page
     };
 
     $("#submit").on("click", function() {
