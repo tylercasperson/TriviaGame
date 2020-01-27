@@ -5,34 +5,7 @@ $(document).ready(function() {
     var languageUsed = [];
     var response = [1,2,3,4,5,6,7,8,9,10];
 
-    //add timmer
-    var timelimit = localStorage.getItem("timelimit");
-    var intervalId;
-    
-    //runs the timmer
-    function run() {
-        clearInterval(intervalId);
-        intervalID = setInterval(decrement, 1000);
-    }
-
-    //decreases the timmer
-    function decrement() {
-        timelimit--;
-        $("#timmer").html("<h2>Better hurry! Here is your remaining time: " + timelimit + "</h2>");
-
-        if (timelimit <= 0) { 
-            stop();
-            check();
-        }
-    }
-
-    //events that happen when the timmer hits 0
-    function stop() {
-        clearInterval(intervalId);
-        $("#timmer").html("<h2>" + 0 + "</h2>");
-    }
-
-    run();
+    restartTimmer();
 
     var countToTen = [
         {
@@ -206,6 +179,41 @@ $(document).ready(function() {
         localStorage.setItem("numberCorrect",correct);
     };
 
+    function restartTimmer() {
+        var intervalId;
+        clearInterval(intervalId);
+        var timelimit = localStorage.getItem("timelimit");
+        $("#timmer").html("<h2>Better hurry! Here is your remaining time: " + timelimit + "</h2>");
+            //add timmer
+        
+        
+        
+        //runs the timmer
+        function run() {
+            clearInterval(intervalId);
+            var intervalID = setInterval(decrement, 1000);
+        }
+
+        //decreases the timmer
+        function decrement() {
+            timelimit--;
+            $("#timmer").html("<h2>Better hurry! Here is your remaining time: " + timelimit + "</h2>");
+
+            if (timelimit <= 0) { 
+                stop();
+                check();
+            }
+        }
+
+        //events that happen when the timmer hits 0
+        function stop() {
+            clearInterval(intervalId);
+            $("#timmer").html("<h2>" + 0 + "</h2>");
+        }
+        run();
+
+    }
+
     function next() {
         var counter = $(".counter").text();
         if (counter === '9'){  //localStorage.getItem("i")
@@ -214,6 +222,7 @@ $(document).ready(function() {
             $('#ultimateQuestion').empty();
             $("button").empty();
             $("button").prepend('<button id="submit" form="languageOfNumbers"><a href="./finalTalley.html">Submit</a></button>');
+            restartTimmer();
             setupQuestion();
         } else if(counter === '10'){
             check();
@@ -221,7 +230,9 @@ $(document).ready(function() {
             $(".counter").text(parseInt(counter)+1);
             $("input").prop("checked", false);
             $('#ultimateQuestion').empty();
+            restartTimmer();
             setupQuestion();
+
         }
     }
 
