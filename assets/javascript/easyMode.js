@@ -13,10 +13,10 @@ $(document).ready(function() {
 //decreases the timmer
     function decrement() {
         timelimit--;
-        $("#timmer").html("<h2>" + timelimit + "</h2>");
+        $("#timmer").html("<h2>Better hurry! Here is your remaining time: " + timelimit + "</h2>");
 
         if (timelimit <= 0) { 
-            stop();
+            // stop();
             check();
     //add more lines here
         }
@@ -204,6 +204,7 @@ $(document).ready(function() {
         console.log(answers);
         console.log(response);
         localStorage.setItem("numberCorrect",correct);
+        //figure out how to redirect to the next page
     };
 
     $("#submit").on("click", function() {

@@ -13,7 +13,7 @@ $(document).ready(function() {
     //decreases the timmer
         function decrement() {
             timelimit--;
-            $("#timmer").html("<h2>" + timelimit + "</h2>");
+            $("#timmer").html("<h2>Better hurry! Here is your remaining time: " + timelimit + "</h2>");
     
             if (timelimit <= 0) { 
                 stop();
