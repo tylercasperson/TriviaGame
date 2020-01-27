@@ -4,17 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="./assets/javascript/index.js"></script>
     <title>What is the number in a different language?</title>
 </head>
 <body>
+    <div class="spacer">/</div>
     <div class="center">
-        <div class="introduction"></div>
-        <input type="number" value="120">
-        <div class="easyMode"><a href="./easyMode.html">Easy Mode</a></div>
-        <div class="hardMode"><a href="./hardMode.html">Hard Mode</a></div>
+    <div class="choice">
+        <div class="introduction">Welcome to the numbers from different languages quiz. You will be provided a time limit and required to answer 10 questions. You can see all questions at once or challange yourself and see one question at a time.</div>
+        <br>
+    
+        <div class="timelimit">How much time would you like to answer the questions? The time limit is set at: 
+            <input type="number" value="120">
+        </div>
+        <br>
+        <div class="introduction">How difficult would you like this quiz?</div>
+        <div class="easyMode"><a href="./allQuestions.html">All the questions will be displayed. The time limit will be set for all questions.</a></div>
+        <div class="hardMode"><a href="./singleQuestions.html">One question will be displayed. The time limit will be set per question.</a></div>
+    </div>
+    
     </div>
 </body>
 </html>

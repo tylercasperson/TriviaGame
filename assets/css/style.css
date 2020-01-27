@@ -22,3 +22,30 @@ form{
 .spacer{
     line-height: 250px;
 }
+a{
+    text-decoration: none;
+}
+.introduction, .timelimit{
+    background-color: white;
+}
+.easyMode{
+    background-color: rgb(51, 142, 245);
+}
+.hardMode{
+    background-color: rgb(133, 20, 20);
+}
+.choice{
+    display: flexgrid;
+    text-align: center;
+    justify-content: center;
+    width: 400px;
+}
+.finalTalley{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.results{
+    font-size: xx-large;
+    background-color: white;
+}
